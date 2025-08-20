@@ -62,3 +62,8 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.savefig("chart.png", dpi=64, bbox_inches="tight")  # 512x512
 plt.close()
+
+from PIL import Image
+img = Image.open("chart.png")
+img = img.resize((512, 512), Image.Resampling.LANCZOS)
+img.save("chart.png")
